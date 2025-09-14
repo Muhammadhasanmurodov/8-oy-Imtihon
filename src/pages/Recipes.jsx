@@ -19,7 +19,7 @@ export default function Recipes() {
   }
 
   useEffect(() => {
-    const delayDebounce = setTimeout(() => {
+    const wait = setTimeout(() => {
       setLoader(true);
 
       fetch(`https://json-api.uz/api/project/recipes/recipes${forFetch}`)
@@ -36,7 +36,7 @@ export default function Recipes() {
           setLoader(false);
         });
     }, 500);
-    return () => clearTimeout(delayDebounce);
+    return () => clearTimeout(wait);
   }, [prep, cook, search]);
 
   return (
